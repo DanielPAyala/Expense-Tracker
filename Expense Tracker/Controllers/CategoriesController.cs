@@ -14,10 +14,10 @@ namespace Expense_Tracker.Controllers
         private readonly ApplicationDbContext _context = context;
 
         // GET: Categories
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.Categories.ToListAsync());
-        }
+        public async Task<IActionResult> Index() =>
+            await _context.Categories.AnyAsync() ?
+                View(await _context.Categories.ToListAsync()) :
+                View(Enumerable.Empty<Category>());
 
         // GET: Categories/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -38,11 +38,8 @@ namespace Expense_Tracker.Controllers
         }
 
         // GET: Categories/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
+        public IActionResult Create() => View(new Category());
+        
         // POST: Categories/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
