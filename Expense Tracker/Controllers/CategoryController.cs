@@ -9,7 +9,7 @@ using Expense_Tracker.Models;
 
 namespace Expense_Tracker.Controllers
 {
-    public class CategoriesController(ApplicationDbContext context) : Controller
+    public class CategoryController(ApplicationDbContext context) : Controller
     {
         private readonly ApplicationDbContext _context = context;
 

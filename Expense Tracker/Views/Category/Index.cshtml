@@ -3,7 +3,7 @@
 @{
     ViewData["PageTitle"] = "Categories";
     ViewData["PageActionText"] = "+ New Category";
-    ViewData["PageActionUrl"] = "/Categories/Create";
+    ViewData["PageActionUrl"] = "/Category/Create";
 }
 
 <div class="row">
@@ -38,10 +38,10 @@
 
 <script id="actionColumnTemplate" type="text/x-template">
     <div class="d-flex flex-row justify-content-start">
-        <a class="btn btn-sm no-a-decoration" href="/Categories/Edit/${CategoryId}">
+        <a class="btn btn-sm no-a-decoration" href="/Category/Edit/${CategoryId}">
             <i class="fa-solid fa-pen fa-lg"></i>
         </a>
-        <form action="/Categories/Delete/${CategoryId}" method="post">
+        <form action="/Category/Delete/${CategoryId}" method="post">
             @Html.AntiForgeryToken()
             <button class="btn btn-sm no-a-decoration" type="submit" 
             onclick="return confirm(&quot;Are you sure to delete this record?&quot;)">
